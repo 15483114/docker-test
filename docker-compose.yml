@@ -1,0 +1,16 @@
+version: "0.01"
+services:
+  web:
+    build: .
+    ports:
+      - "8800:5000"  #8000 already allocated
+  redis:
+    image: redis:alpine
+    ports:
+      - '6379:6379'
+
+    volumes: 
+      - ./cache:/data
+volumes:
+  cache:
+    driver: local
